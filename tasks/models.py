@@ -10,10 +10,11 @@ class Task(models.Model):
     completed_date = models.DateTimeField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        # If the task is marked as complete and there's no completed_date, set it
+        self.title = self.title.capitalize() 
+
         if self.completed and self.completed_date is None:
             self.completed_date = timezone.now()
-        # If the task is marked as incomplete, reset the completed_date
+        
         elif not self.completed:
             self.completed_date = None
         super().save(*args, **kwargs)
