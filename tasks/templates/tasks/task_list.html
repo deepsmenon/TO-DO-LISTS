@@ -15,14 +15,16 @@
                 <li>
                     <strong>{{ task.title }}</strong>
                     {% if task.completed %}
-                        <span> - Completed on: {{ task.completed_date|date:"F j, Y, g:i a" }}</span>
+                        <span class="completed"> - Completed on: {{ task.completed_date|date:"F j, Y, g:i a" }}</span>
+                        <a href="{% url 'delete_task' task.id %}" class="delete">Delete</a>
                     {% else %}
                         <a href="{% url 'complete_task' task.id %}">Complete</a>
+                        <a href="{% url 'delete_task' task.id %}" class="delete">Delete</a>
                     {% endif %}
                 </li>
             {% endfor %}
         </ul>
-        <a href="{% url 'add_task' %}">Add Task</a>
+        <a href="{% url 'add_task' %}" class="add-task">Add Task</a>
     </div>
 </body>
 </html>
