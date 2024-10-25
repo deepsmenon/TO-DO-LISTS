@@ -5,10 +5,10 @@
 <form method="POST">
     {% csrf_token %}
     <label for="title">Title:</label>
-    <input type="text" name="title" id="title" required placeholder="Enter task title" maxlength="200"><br>
+    <input type="text" name="title" id="title" required placeholder="Enter task title" maxlength="200" aria-label="Task Title"><br>
 
     <label for="description">Description:</label>
-    <textarea name="description" id="description" placeholder="Enter task description"></textarea><br>
+    <textarea name="description" id="description" placeholder="Enter task description" aria-label="Task Description"></textarea><br>
 
     <button type="submit">Add Task</button>
 </form>
